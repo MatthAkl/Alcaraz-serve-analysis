@@ -18,6 +18,8 @@ Alcaraz a modifié son service début 2025 (geste plus fluide, sans temps d'arr�
 | 4 | `src/03_detection_balle.py` | Détection de la balle (YOLO11), filtrage par zone du lancer et suppression des balles immobiles |
 | 5 | `src/04_mesures.py` | Calcul des mesures par service et résumé par année |
 | 6 | `src/05_visualisation.py` | Graphique de comparaison et vidéos annotées |
+| 7 | `src/06_cote_a_cote.py` | Vidéo côte à côte de deux services, synchronisés sur l'impact |
+| 8 | `src/07_courbes_geste.py` | Courbes moyennes du geste (poignet, genoux, balle) alignées sur l'impact |
 
 Points techniques notables :
 
@@ -42,6 +44,20 @@ Comparaison sur 11 services de 2023 et 29 services de 2026 (entraînement en sal
 - **Geste plus enchaîné** : la frappe intervient plus tôt après le sommet du lancer.
 - **Flexion des genoux** comparable entre les deux périodes.
 
+## Comparaison avec mon propre service
+
+J'ai appliqué le même pipeline à 3 de mes services, filmés au téléphone.
+
+![Alcaraz 2026 vs moi](docs/cote_a_cote.gif)
+
+![Courbes du geste](docs/courbes_geste.png)
+
+- **Flexion des genoux** : Alcaraz descend jusqu'à environ 100-110° avant de pousser ; je reste autour de 135°, avec une flexion plus tardive.
+- **Bras de lancer** : entre 0,35 et 0,2 s avant l'impact, mon bras de lancer redescend nettement plus tôt que le sien, alors qu'Alcaraz le garde levé pendant la montée de la raquette.
+- **Lancer de balle** : trajectoire très proche de la sienne en hauteur et en timing.
+
+Avec 3 services, ces écarts sont des pistes de travail plutôt que des conclusions, mais ils dépassent nettement la variabilité d'un service à l'autre.
+
 ## Limites
 
 - **Angles de caméra différents** entre 2023 (de derrière, en hauteur) et 2026 (de côté) : seules les mesures temporelles et normalisées sont comparées ; la hauteur d'impact n'est pas retenue.
@@ -64,13 +80,15 @@ python src/02_extraction_keypoints.py
 python src/03_detection_balle.py
 python src/04_mesures.py
 python src/05_visualisation.py
+python src/06_cote_a_cote.py
+python src/07_courbes_geste.py
 ```
 
 Les vidéos sources (entraînements publiés sur YouTube) ne sont pas incluses dans ce dépôt pour des raisons de droits.
 
 ## Suite du projet
 
-Appliquer le même pipeline à mes propres services (filmés au téléphone) pour mesurer ma régularité et la comparer à celle d'Alcaraz.
+Filmer une série de lancers sans frappe pour mesurer la dispersion de mon lancer (position du sommet par rapport au corps), puis suivre son évolution après quelques séances d'entraînement.
 
 ## Stack
 

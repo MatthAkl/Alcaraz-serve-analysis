@@ -95,6 +95,11 @@ for clip, j in kp.groupby("clip"):
         "duree_sommet_impact": (img_impact - img_sommet) / FPS,
         "flexion_genoux_deg": flexion,
         "buste_px": buste,
+        # Repères utilisés par les scripts de visualisation (06 et 07)
+        "img_debut": img_debut,
+        "img_sommet": img_sommet,
+        "img_impact": img_impact,
+        "sol_y": sol_y,
     })
 
 mesures = pd.DataFrame(lignes)
