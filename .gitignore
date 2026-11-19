@@ -1,0 +1,11 @@
+# Environnement Python
+.venv/
+__pycache__/
+
+# Modèles téléchargés automatiquement par ultralytics
+*.pt
+
+# Vidéos sources (images de tournois, non redistribuables) et résultats générés
+data/raw/
+data/reserve/
+outputs/
